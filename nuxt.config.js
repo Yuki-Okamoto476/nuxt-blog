@@ -1,3 +1,8 @@
+//追記
+require("dotenv").config();
+const { API_KEY } = process.env;
+const axios = require("axios");
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -37,19 +42,20 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: ['@nuxtjs/markdownit'],
+  markdownit: {
+    html: true,
+    injected: true,
+    preset: 'default',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  env: {
+    API_KEY
   }
 }
-//追記
-require("dotenv").config();
-const { API_KEY } = process.env;
-const axios = require("axios");
-//追記
-env: {
-  API_KEY
-}
+
 
