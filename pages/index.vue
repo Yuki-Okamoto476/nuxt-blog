@@ -9,26 +9,26 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      items: []
-    };
+      items: [],
+    }
   },
-  async asyncData({error}) {
-    try{
+  async asyncData({ error }) {
+    try {
       const { data } = await axios.get(
-      "https://engineerblog.microcms.io/api/v1/blog-posting",
-      {
-        headers: { "X-MICROCMS-API-KEY": process.env.API_KEY }
-      }
-    );
+        'https://engineerblog.microcms.io/api/v1/blog-posting',
+        {
+          headers: { 'X-MICROCMS-API-KEY': process.env.API_KEY },
+        }
+      )
       return {
-        items: data.contents
-      };
-    } catch(err) {
+        items: data.contents,
+      }
+    } catch (err) {
       error({
         statusCode: err.response.status,
         message: err.response.data.message,
